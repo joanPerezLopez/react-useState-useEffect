@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+import ButtonCounter from "./components/buttonCounter";
+import React, {useState, useEffect} from "react";
 function App() {
+
+  const [counter, setCounter] = useState(0);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App Background">
+      {counter < 5 && <ButtonCounter size="big" counter={counter} setCounter={setCounter}/>}
+      {counter >= 5 && <ButtonCounter color="blue" counter={counter} setCounter={setCounter}/>}
+      {counter > 10 && <ButtonCounter color="green" size="small" counter={counter} setCounter={setCounter}/>}
     </div>
   );
 }
